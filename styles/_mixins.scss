@@ -1,0 +1,49 @@
+@mixin container() {
+  display: flex;
+  @include media-breakpoint-up(lg) {
+    padding: 1rem 5rem;
+  }
+  @include media-breakpoint-down(lg) {
+    padding: 1rem 2rem;
+  }
+}
+
+@mixin media-breakpoint-up($level) {
+  @if $level == sm {
+    @media (min-width: 576px) {
+      @content;
+    }
+  } @else if $level == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $level == lg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $level == xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+@mixin media-breakpoint-down($level) {
+  @if $level == sm {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $level == md {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $level == lg {
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $level == xl {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+}
