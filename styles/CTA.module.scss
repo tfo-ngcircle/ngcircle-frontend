@@ -1,0 +1,34 @@
+@import "mixins.scss";
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  justify-content: space-between;
+  border-bottom: 1px solid #cccccc;
+
+  h1 {
+    @include container();
+    flex: 2;
+  }
+}
+
+.action {
+  color: white;
+  width: auto;
+  flex: 1 1;
+  display: flex;
+  flex-direction: row;
+  padding-right: 24px;
+  background-color: #cccccc;
+  min-height: 100%;
+
+  :first-child {
+    margin-top: 2rem;
+  }
+
+  a {
+    margin: 1.7rem 2rem;
+    font-size: 30px;
+  }
+}

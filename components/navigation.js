@@ -1,17 +1,19 @@
 import React from "react";
-import Logo from "@/components/logo";
+import MyImage from "@/components/image";
 import MyLink from "@/components/link";
 import styles from "../styles/Navigation.module.scss";
+import { useRouter } from "next/router";
 
 const Navigation = ({ logo, items }) => {
+  const router = useRouter();
   return (
     <header>
       <nav>
         <div className={styles.container}>
-          <Logo image={logo} />
+          <MyImage image={logo} />
           <ul className={styles.navItems}>
             {items.map((item) => (
-              <li key={item.id}>
+              <li className={router.pathname == item.destination ? styles.selected : ""} key={item.id}>
                 <MyLink destination={item.destination} label={item.label} />
               </li>
             ))}
