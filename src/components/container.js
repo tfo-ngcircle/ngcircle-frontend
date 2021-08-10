@@ -1,4 +1,4 @@
-import Navigation from "./navigation";
+import Navigation from "./header";
 
 const Container = ({ header, children }) => {
   return (

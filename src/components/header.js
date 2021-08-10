@@ -1,10 +1,10 @@
 import React from "react";
 import MyImage from "src/components/image";
 import MyLink from "src/components/link";
-import styles from "../styles/Navigation.module.scss";
+import styles from "../styles/Header.module.scss";
 import { useRouter } from "next/router";
 
-const Navigation = ({ logo, items }) => {
+const Header = ({ logo, items }) => {
   const router = useRouter();
   return (
     <header>
@@ -24,4 +24,4 @@ const Navigation = ({ logo, items }) => {
   );
 };
 
-export default Navigation;
+export default Header;
