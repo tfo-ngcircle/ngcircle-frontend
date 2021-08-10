@@ -1,27 +1,31 @@
 @import "../mixins.scss";
 
-.container {
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #cccccc;
-  align-items: center;
-
-  .close {
-    display: none;
-  }
-
-  .navItems {
-    display: flex;
+@include media-breakpoint-up(xl) {
+  .container {
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid #cccccc;
+    align-items: center;
 
-    li + li {
-      margin-left: 1rem;
-      cursor: pointer;
+    .close {
+      display: none;
+    }
+
+    .navItems {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      li + li {
+        margin-left: 1rem;
+        cursor: pointer;
+      }
     }
   }
+}
 
-  &Collapsed {
+@include media-breakpoint-down(xl) {
+  .container {
     .close {
       display: block;
     }
@@ -42,24 +46,22 @@
       top: 0;
       right: 0;
       margin: 0;
-      padding: 1.5em 2.5em;
       height: 100%;
-      width: 60%;
+      width: 20em;
+      padding: 0;
 
       li {
-        padding: 1.5em 0;
-        border-top: 1px solid #ffffff38;
+        padding: 2.5em 3em;
+      }
 
-        &:first-child {
-          border-top: 0px !important;
-        }
+      li:not(:first-child) {
+        border-top: 1px solid #ffffff38;
       }
     }
   }
 }
 
-.container,
-.containerCollapsed {
+.container {
   border-bottom: 1px solid #cccccc;
   align-items: center;
   @include container();
@@ -127,5 +129,5 @@
 }
 
 .selected {
-  color: #C00000;
+  color: #c00000;
 }

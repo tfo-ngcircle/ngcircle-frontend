@@ -1,4 +1,4 @@
-import "../styles/_globals.css";
+import "../styles/_globals.scss";
 import App from "next/app";
 import Head from "next/head";
 import { createContext } from "react";
