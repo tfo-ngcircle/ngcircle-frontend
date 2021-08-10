@@ -8,7 +8,7 @@ const CTA = ({ cta, style }) => {
     <section>
       <div className={styles.container}>
         <h1>{cta.description}</h1>
-        <div className={styles.action}>
+        <div className={styles.action} style={style}>
           <Image
             src="/arrow.svg"
             alt=""
@@ -16,7 +16,7 @@ const CTA = ({ cta, style }) => {
             height={32.828}
             layout="fixed"
           />
-          <Link href={cta.action} passHref style={style}>
+          <Link href={cta.action} passHref>
             <a>{cta.title}</a>
           </Link>
         </div>
