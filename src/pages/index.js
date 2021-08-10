@@ -1,9 +1,9 @@
 import Head from "next/head";
-import { fetchApi } from "@/lib/api";
-import Container from "@/components/container";
+import { fetchApi } from "src/lib/api";
+import Container from "src/components/container";
 import { GlobalContext } from "./_app";
 import { useContext } from "react";
-import CTA from "@/components/cta";
+import CTA from "src/components/cta";
 
 export default function Home({ homepage }) {
   const { header } = useContext(GlobalContext);

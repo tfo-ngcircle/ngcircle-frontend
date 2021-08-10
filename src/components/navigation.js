@@ -1,6 +1,6 @@
 import React from "react";
-import MyImage from "@/components/image";
-import MyLink from "@/components/link";
+import MyImage from "src/components/image";
+import MyLink from "src/components/link";
 import styles from "../styles/Navigation.module.scss";
 import { useRouter } from "next/router";
 

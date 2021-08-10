@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { getStrapiMedia } from "@/lib/media";
+import { getStrapiMedia } from "src/lib/media";
 
 const MyImage = ({ image, style }) => {
   return (

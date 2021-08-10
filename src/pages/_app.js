@@ -2,8 +2,8 @@ import "../styles/_globals.css";
 import App from "next/app";
 import Head from "next/head";
 import { createContext } from "react";
-import { fetchApi } from "@/lib/api";
-import { getStrapiMedia } from "@/lib/media";
+import { fetchApi } from "src/lib/api";
+import { getStrapiMedia } from "src/lib/media";
 
 export const GlobalContext = createContext({});
 
