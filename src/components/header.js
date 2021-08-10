@@ -1,7 +1,7 @@
 import React from "react";
-import MyImage from "src/components/image";
-import MyLink from "src/components/link";
-import styles from "../styles/Header.module.scss";
+import MyImage from "./image";
+import MyLink from "./link";
+import styles from "../styles/components/Header.module.scss";
 import { useRouter } from "next/router";
 
 const Header = ({ logo, items }) => {

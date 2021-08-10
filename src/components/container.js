@@ -1,9 +1,9 @@
-import Navigation from "./header";
+import Header from "./header";
 
 const Container = ({ header, children }) => {
   return (
     <>
-      <Navigation logo={header.logo} items={header.items} />
+      <Header logo={header.logo} items={header.items} />
       {children}
     </>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/CTA.module.scss";
+import styles from "../styles/components/CTA.module.scss";
 
 const CTA = ({ cta, style }) => {
   return (

@@ -1,16 +1,17 @@
 import Head from "next/head";
 import { fetchApi } from "src/lib/api";
-import Header from "src/components/header";
+import Header from "@/components/header";
 import { GlobalContext } from "./_app";
 import { useContext } from "react";
-import CTA from "src/components/cta";
+import CTA from "@/components/cta";
+import Container from "@/components/container";
 
 export default function Home({ homepage }) {
   const { header } = useContext(GlobalContext);
   return (
-    <Header header={header}>
+    <Container header={header}>
       <CTA cta={homepage.CTA} style={{ backgroundColor: "#000" }} />
-    </Header>
+    </Container>
   );
 }
 
