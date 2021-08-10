@@ -1,6 +1,5 @@
 import Head from "next/head";
-import { fetchApi } from "src/lib/api";
-import Header from "@/components/header";
+import { fetchApi } from "@/lib/api";
 import { GlobalContext } from "./_app";
 import { useContext } from "react";
 import CTA from "@/components/cta";
