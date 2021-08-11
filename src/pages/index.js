@@ -12,6 +12,18 @@ export default function Home({ homepage }) {
       <Seo seo={homepage.seo} />
       <Container header={header} footer={footer}>
         <CTA cta={homepage.CTA} style={{ backgroundColor: "#000" }} />
+        <p>
+          <h1>Dude</h1>
+          <h1>Dude</h1>
+          <h1>Dude</h1>
+          <h1>Dude</h1>
+          <h1>Dude</h1>
+          <h1>Dude</h1>
+          <h1>Dude</h1>
+          <h1>Dude</h1>
+          <h1>Dude</h1>
+          <h1>Dude</h1>
+        </p>
       </Container>
     </>
   );

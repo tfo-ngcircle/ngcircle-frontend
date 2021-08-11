@@ -10,6 +10,7 @@
   h1 {
     @include container();
     flex: 2;
+    margin: 1rem 0;
   }
 }
 
