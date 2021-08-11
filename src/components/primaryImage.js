@@ -12,7 +12,7 @@ const PrimaryImage = ({ primaryImage }) => {
       className={styles.primaryImage}
       style={{
         backgroundImage: `url(${getStrapiMedia(primaryImage.backgroundImage)})`,
-        minHeight: `${Math.min(692, primaryImage.height)}px`,
+        minHeight: `${Math.min(692, primaryImage.backgroundImage.height)}px`,
       }}
     >
       {left && renderMedia(left)}
