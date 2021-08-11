@@ -1,0 +1,12 @@
+@import "../_mixins";
+
+.primaryImage {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  justify-content: space-between;
+  @include container();
+}
