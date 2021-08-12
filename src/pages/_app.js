@@ -6,8 +6,8 @@ import { fetchApi } from "@/lib/api";
 import { getStrapiMedia } from "@/lib/media";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { ParallaxProvider } from "react-scroll-parallax";
 import NProgress from "nprogress";
+import "react-flexbox-grid/dist/react-flexbox-grid.css";
 
 export const GlobalContext = createContext({});
 
@@ -39,11 +39,9 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
       </Head>
-      <ParallaxProvider>
-        <GlobalContext.Provider value={global}>
-          <Component {...pageProps} />
-        </GlobalContext.Provider>
-      </ParallaxProvider>
+      <GlobalContext.Provider value={global}>
+        <Component {...pageProps} />
+      </GlobalContext.Provider>
     </>
   );
 }
