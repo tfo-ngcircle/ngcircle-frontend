@@ -3,22 +3,27 @@ import { getStrapiMedia } from "@/lib/media";
 import MyImage from "./image";
 import styles from "../styles/components/PrimaryImage.module.scss";
 import ReactPlayer from "react-player";
+import { Parallax } from "react-parallax";
 
 const PrimaryImage = ({ primaryImage }) => {
   const left = primaryImage.leftMedia;
   const right = primaryImage.rightMedia;
+  const minHeight = Math.min(692, primaryImage.backgroundImage.height);
+
   return (
-    <div
-      className={styles.primaryImage}
-      style={{
-        backgroundImage: `url(${getStrapiMedia(primaryImage.backgroundImage)})`,
-        minHeight: `${Math.min(692, primaryImage.backgroundImage.height)}px`,
-      }}
+    <Parallax
+      bgImage={getStrapiMedia(primaryImage.backgroundImage)}
+      strength={300}
     >
-      {left && renderMedia(left)}
-      <div></div>
-      {right && renderMedia(right)}
-    </div>
+      <div
+        className={styles.primaryImage}
+        style={{ minHeight: `${minHeight}px` }}
+      >
+        {left && renderMedia(left)}
+        <div></div>
+        {right && renderMedia(right)}
+      </div>
+    </Parallax>
   );
 };
 
