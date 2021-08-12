@@ -5,8 +5,8 @@ import styles from "../styles/components/PrimaryImage.module.scss";
 import ReactPlayer from "react-player";
 
 const PrimaryImage = ({ primaryImage }) => {
-  const left = primaryImage.leftContent;
-  const right = primaryImage.rightContent;
+  const left = primaryImage.leftMedia;
+  const right = primaryImage.rightMedia;
   return (
     <div
       className={styles.primaryImage}
