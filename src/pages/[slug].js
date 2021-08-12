@@ -5,6 +5,8 @@ import CTA from "@/components/cta";
 import Container from "@/components/container";
 import Seo from "@/components/seo";
 import PrimaryImage from "@/components/primaryImage";
+import ReactMarkdown from "react-markdown";
+import styles from "../styles/pages/Page.module.scss";
 
 function Page({ page }) {
   const { header, footer } = useContext(GlobalContext);
@@ -14,6 +16,11 @@ function Page({ page }) {
       <Container header={header} footer={footer}>
         <CTA cta={page.cta} style={{ backgroundColor: "#000" }} />
         <PrimaryImage primaryImage={page.landing[0]} />
+        {page.content && (
+          <ReactMarkdown className={styles.content} escapeHtml={false}>
+            {page.content}
+          </ReactMarkdown>
+        )}
       </Container>
     </>
   );

@@ -20,7 +20,7 @@ const Header = ({ logo, items }) => {
             {items.map((item) => (
               <li
                 className={
-                  router.pathname == item.destination ? styles.selected : ""
+                  router.asPath == item.destination ? styles.selected : ""
                 }
                 key={item.id}
               >
