@@ -14,7 +14,7 @@ function Content({ items }) {
           case "shared.markdown":
             return (
               <Grid>
-                <ReactMarkdown escapeHtml={false}>{item.md}</ReactMarkdown>
+                <ReactMarkdown>{item.md}</ReactMarkdown>
               </Grid>
             );
           case "shared.media":
@@ -51,7 +51,7 @@ function getItem(index, item) {
           />
         </Col>
         <Col lg={5} xs={12} sm={12} md={6}>
-          <ReactMarkdown escapeHtml={false}>{item.description}</ReactMarkdown>
+          <ReactMarkdown>{item.description}</ReactMarkdown>
         </Col>
       </>
     );
@@ -59,7 +59,7 @@ function getItem(index, item) {
     return (
       <>
         <Col lg={5} xs={12} sm={12} md={6}>
-          <ReactMarkdown escapeHtml={false}>{item.description}</ReactMarkdown>
+          <ReactMarkdown>{item.description}</ReactMarkdown>
         </Col>
         <Col lg={6} xs={12} sm={12} md={6}>
           <Parallax
