@@ -16,7 +16,7 @@ const PrimaryImage = ({ primaryImage }) => {
       bgClassName="max-w-none"
     >
       <div
-        className="container sm:flex justify-between"
+        className="container flex flex-wrap justify-between"
         style={{ minHeight: `${minHeight}px` }}
       >
         {left && renderMedia(left)}

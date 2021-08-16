@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { getStrapiMedia } from "src/lib/media";
 
-const MyImage = ({ image, style }) => {
+const MyImage = ({ image, style, className }) => {
   return (
     <Image
       src={getStrapiMedia(image)}
@@ -12,6 +12,7 @@ const MyImage = ({ image, style }) => {
       layout="intrinsic"
       loading="lazy"
       style={style}
+      className={className}
     />
   );
 };

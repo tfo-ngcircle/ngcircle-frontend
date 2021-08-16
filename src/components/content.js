@@ -2,9 +2,7 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import { Parallax } from "react-parallax";
 import MyImage from "./image";
-import styles from "../styles/pages/Page.module.scss";
 import { getStrapiMedia } from "@/lib/media";
-import { Grid, Row, Col } from "react-flexbox-grid/dist/react-flexbox-grid";
 
 function Content({ items }) {
   return (
@@ -13,23 +11,25 @@ function Content({ items }) {
         switch (item.__component) {
           case "shared.markdown":
             return (
-              <Grid className={styles.content}>
-                <ReactMarkdown>{item.md}</ReactMarkdown>
-              </Grid>
+              <ReactMarkdown className="container py-10 space-y-6">
+                {item.md}
+              </ReactMarkdown>
             );
           case "shared.media":
             return (
-              <Grid fluid={item.fillScreenWidth} className={styles.content}>
+              <div
+                className={`${
+                  item.fillScreenWidth ? "pt-16" : "container pt-16"
+                }`}
+              >
                 <MyImage image={item.media} />
-              </Grid>
+              </div>
             );
           case "shared.media-desc":
             return (
-              <Grid className={styles.grid}>
-                <Row middle="xs" between="xs">
-                  {getItem(index, item)}
-                </Row>
-              </Grid>
+              <div className="md:container text-center">
+                {getItem(index, item)}
+              </div>
             );
           default:
             break;
@@ -42,33 +42,35 @@ function Content({ items }) {
 function getItem(index, item) {
   if (index % 2 == 0) {
     return (
-      <>
-        <Col lg={6} xs={12} sm={12} md={6}>
-          <Parallax
-            bgImage={getStrapiMedia(item.media)}
-            strength={500}
-            contentClassName={styles.parallaxC}
-          />
-        </Col>
-        <Col lg={5} xs={12} sm={12} md={6}>
-          <ReactMarkdown>{item.description}</ReactMarkdown>
-        </Col>
-      </>
+      <div className="md:grid grid-cols-2 flex flex-col-reverse items-center">
+        <Parallax
+          bgImage={getStrapiMedia(item.media)}
+          strength={500}
+          contentClassName="m:h-full h-96"
+          bgClassName="max-w-none"
+        />
+        <div>
+          <ReactMarkdown className="m:p-24 p-10">
+            {item.description}
+          </ReactMarkdown>
+        </div>
+      </div>
     );
   } else
     return (
-      <>
-        <Col lg={5} xs={12} sm={12} md={6}>
-          <ReactMarkdown>{item.description}</ReactMarkdown>
-        </Col>
-        <Col lg={6} xs={12} sm={12} md={6}>
-          <Parallax
-            bgImage={getStrapiMedia(item.media)}
-            strength={500}
-            contentClassName={styles.parallaxC}
-          />
-        </Col>
-      </>
+      <div className="md:grid grid-cols-2 items-center">
+        <div>
+          <ReactMarkdown className="m:p-24 p-10">
+            {item.description}
+          </ReactMarkdown>
+        </div>
+        <Parallax
+          bgImage={getStrapiMedia(item.media)}
+          strength={500}
+          contentClassName="m:h-full h-96"
+          bgClassName="max-w-none"
+        />
+      </div>
     );
 }
 
