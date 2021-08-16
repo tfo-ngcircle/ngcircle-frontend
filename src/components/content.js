@@ -13,13 +13,13 @@ function Content({ items }) {
         switch (item.__component) {
           case "shared.markdown":
             return (
-              <Grid>
+              <Grid className={styles.content}>
                 <ReactMarkdown>{item.md}</ReactMarkdown>
               </Grid>
             );
           case "shared.media":
             return (
-              <Grid fluid={item.fillScreenWidth}>
+              <Grid fluid={item.fillScreenWidth} className={styles.content}>
                 <MyImage image={item.media} />
               </Grid>
             );
