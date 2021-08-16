@@ -38,10 +38,10 @@ a {
 }
 
 a:hover {
-  color: #c00000;
-  text-decoration: none;
-  cursor: pointer;
-  transition: 0.3s;
+  // color: #c00000;
+  // text-decoration: none;
+  // cursor: pointer;
+  // transition: 0.3s;
 }
 
 @include media-breakpoint-down(sm) {
