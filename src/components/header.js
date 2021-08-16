@@ -10,13 +10,13 @@ const Header = ({ logo, items }) => {
   return (
     <div className="border-b">
       <Grid>
-        <header className="lg:flex items-center justify-between py-4">
+        <header className="xl:flex items-center justify-between py-4">
           <Link href="/">
             <a>
               <MyImage image={logo} />
             </a>
           </Link>
-          <ul className="space-y-4 sm:flex sm:space-x-2 sm:ml-0 sm:space-y-0 lg:ml-4 pt-4 justify-between">
+          <ul className="space-y-4 sm:flex sm:space-x-2 sm:ml-0 sm:space-y-0 xl:ml-4 pt-4 justify-between">
             {items.map((item) => (
               <li
                 className={
