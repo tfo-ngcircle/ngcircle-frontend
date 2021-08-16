@@ -1,14 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/components/CTA.module.scss";
 
 const CTA = ({ cta, style }) => {
   return (
-    <section>
-      <div className={styles.container}>
-        <h1>{cta.description}</h1>
-        <div className={styles.action} style={style}>
+    <section className="border-b">
+      <div className="sm:grid sm:grid-cols-4 container items-center">
+        <h1 className="col-span-3 py-10 xl:pr-10">{cta.description}</h1>
+        <div
+          style={style}
+          className="flex min-h-full md:w-[208px] lg:w-[316px] xl:w-[440px] 2xl:w-[440px] pt-8 pb-8 text-white hover:text-primary space-x-6"
+        >
           <Image
             src="/arrow.svg"
             alt=""

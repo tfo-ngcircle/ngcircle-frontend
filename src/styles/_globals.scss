@@ -1,40 +1,24 @@
 @import "./_mixins";
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: "Open Sans", sans-serif !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 20px;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-  box-sizing: border-box;
-}
-
-h1 {
-  font-size: 58px;
-  font-weight: 300;
-  line-height: 1;
-}
-
-h2 {
-  font-size: 48px;
-  font-weight: 300;
-  line-height: 1;
-}
-
-h3 {
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 1.5;
-}
-
-@include media-breakpoint-down(sm) {
+@layer base {
   h1 {
-    font-size: 38px;
+    @apply text-5xl;
+    @apply font-light;
+  }
+  h2 {
+    @apply text-4xl;
+    @apply font-light;
+  }
+  h3 {
+    @apply text-3xl;
+  }
+
+  body {
+    @apply text-xl;
   }
 }
 

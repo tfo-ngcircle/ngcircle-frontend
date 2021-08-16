@@ -5,38 +5,40 @@ import ReactMarkdown from "react-markdown";
 
 const Footer = ({ logo, links, locations }) => {
   return (
-    <footer className="bg-black text-white space-y-5 py-5 p-8 lg:px-20">
-      <div className="sm:flex justify-between border-b pb-5">
-        <p>© {new Date().getFullYear()} | NgC GmbH</p>
-        <div className="space-x-4">
-          {links.map((link) => (
-            <MyLink
-              label={link.label}
-              destination={link.destination}
-              key={link.destination}
-            />
-          ))}
-        </div>
-      </div>
-      <div className="sm:flex space-y-4 sm:space-y-0 justify-between">
-        <div className="w-[140px] h-[140px]">
-          <MyImage image={logo} />
-        </div>
-        <div className="space-y-4 xl:pr-20">
-          <p>Unsere Standorte</p>
-          <div className="sm:flex space-y-4 sm:space-x-8 sm:space-y-0 justify-evenly">
-            {locations.map((location) => (
-              <div key={`location_${location.id}`}>
-                <b>{location.City}</b>
-                <ReactMarkdown escapeHtml={false}>
-                  {location.Info}
-                </ReactMarkdown>
-              </div>
+    <div className="bg-black pb-10">
+      <footer className="container text-white space-y-5 py-12 p-8 xl:px-20">
+        <div className="sm:flex justify-between border-b pb-5">
+          <p>© {new Date().getFullYear()} | NgC GmbH</p>
+          <div className="space-x-4">
+            {links.map((link) => (
+              <MyLink
+                label={link.label}
+                destination={link.destination}
+                key={link.destination}
+              />
             ))}
           </div>
         </div>
-      </div>
-    </footer>
+        <div className="sm:flex space-y-4 sm:space-y-0 justify-between">
+          <div className="w-[140px] h-[140px]">
+            <MyImage image={logo} />
+          </div>
+          <div className="space-y-4 xl:pr-20">
+            <p>Unsere Standorte</p>
+            <div className="sm:flex space-y-4 sm:space-x-8 sm:space-y-0 justify-evenly">
+              {locations.map((location) => (
+                <div key={`location_${location.id}`} className="text-gray-300">
+                  <b>{location.City}</b>
+                  <ReactMarkdown escapeHtml={false}>
+                    {location.Info}
+                  </ReactMarkdown>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 };
 

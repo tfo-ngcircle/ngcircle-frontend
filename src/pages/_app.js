@@ -8,7 +8,6 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import "react-flexbox-grid/dist/react-flexbox-grid.css";
-import "tailwindcss/tailwind.css";
 
 export const GlobalContext = createContext({});
 
