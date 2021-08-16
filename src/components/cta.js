@@ -6,7 +6,7 @@ const CTA = ({ cta, style }) => {
   return (
     <section className="border-b">
       <div className="sm:grid sm:grid-cols-4 sm:container items-center overflow">
-        <h1 className="col-span-3 py-14 xl:pr-10 overflow-ellipsis overflow-hidden">
+        <h1 className="col-span-3 py-14 px-4 sm:px-0 xl:pr-10 overflow-ellipsis overflow-hidden">
           {cta.description}
         </h1>
         <div
