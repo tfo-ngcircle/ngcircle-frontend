@@ -1,7 +1,6 @@
 import React from "react";
 import { getStrapiMedia } from "@/lib/media";
 import MyImage from "./image";
-import styles from "../styles/components/PrimaryImage.module.scss";
 import ReactPlayer from "react-player";
 import { Parallax } from "react-parallax";
 
@@ -14,9 +13,10 @@ const PrimaryImage = ({ primaryImage }) => {
     <Parallax
       bgImage={getStrapiMedia(primaryImage.backgroundImage)}
       strength={300}
+      bgClassName="max-w-none"
     >
       <div
-        className={styles.primaryImage}
+        className="container sm:flex justify-between"
         style={{ minHeight: `${minHeight}px` }}
       >
         {left && renderMedia(left)}
