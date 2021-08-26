@@ -20,7 +20,7 @@ const Header = ({ logo, items }) => {
               className={
                 router.asPath == item.destination
                   ? "text-primary text-center"
-                  : "hover:animate-pulse text-center"
+                  : "text-center"
               }
               key={item.id}
             >

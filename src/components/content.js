@@ -11,13 +11,14 @@ function Content({ items }) {
         switch (item.__component) {
           case "shared.markdown":
             return (
-              <ReactMarkdown className="container py-10 space-y-6">
+              <ReactMarkdown key={index} className="container py-10 space-y-6">
                 {item.md}
               </ReactMarkdown>
             );
           case "shared.media":
             return (
               <div
+                key={index}
                 className={`${
                   item.fillScreenWidth ? "pt-16" : "container pt-16"
                 }`}
@@ -27,7 +28,7 @@ function Content({ items }) {
             );
           case "shared.media-desc":
             return (
-              <div className="md:container text-center">
+              <div key={index} className="md:container text-center">
                 {getItem(index, item)}
               </div>
             );
