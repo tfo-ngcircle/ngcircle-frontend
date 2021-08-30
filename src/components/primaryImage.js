@@ -32,9 +32,11 @@ function PrimaryImage({ primaryImage }) {
               key={image.id}
               className="translate-y-0 text-black bg-white bg-opacity-80 p-8 shadow-lg max-w-2xl border-primary border-l-4 border-r-4 text-center"
             >
-              <ReactMarkdown>
-                {primaryImage.description[index].md}
-              </ReactMarkdown>
+              {primaryImage.description[index] && (
+                <ReactMarkdown>
+                  {primaryImage.description[index].md}
+                </ReactMarkdown>
+              )}
             </div>
           ))}
         </Slider>
@@ -70,13 +72,13 @@ const Slider = styled(AutoplaySlider)`
   --organic-arrow-border-radius: 0px;
   --organic-arrow-height: 20px;
   --organic-arrow-color: #c00000;
-  --control-button-width: 15%;
+  --control-button-width: 10%;
   --control-button-height: 25%;
   --control-button-background: transparent;
   --control-bullet-color: #65221d85;
   --control-bullet-active-color: #65221d;
   --loader-bar-color: #65221d;
-  --loader-bar-height: 6px;
+  --loader-bar-height: 4px;
 `;
 
 export default PrimaryImage;
