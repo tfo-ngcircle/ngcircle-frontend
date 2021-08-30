@@ -21,7 +21,11 @@ function PrimaryImage({ primaryImage }) {
   switch (primaryImage.__component) {
     case "shared.slider":
       return (
-        <Slider heightPercentage={heightPercentage} play={true} interval={6000}>
+        <Slider
+          heightPercentage={heightPercentage}
+          play={primaryImage.autoPlay}
+          interval={primaryImage.interval}
+        >
           {primaryImage.images.map((image, index) => (
             <div
               data-src={getStrapiMedia(image)}
