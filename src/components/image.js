@@ -9,7 +9,7 @@ const MyImage = ({ image, style, className }) => {
       alt={image.alternativeText || image.name}
       width={image.width}
       height={image.height}
-      layout="intrinsic"
+      layout="responsive"
       loading="lazy"
       style={style}
       className={className}

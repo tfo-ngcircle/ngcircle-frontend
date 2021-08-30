@@ -28,7 +28,18 @@ function Content({ items }) {
             );
           case "shared.media-desc":
             return (
-              <div key={index} className="md:container text-center">
+              <div
+                key={index}
+                className={`md:container ${
+                  item.alignment === "left"
+                    ? "text-left"
+                    : item.alignment === "right"
+                    ? "text-right"
+                    : item.alignment === "justify"
+                    ? "text-justify"
+                    : "text-center"
+                }`}
+              >
                 {getItem(index, item)}
               </div>
             );

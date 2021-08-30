@@ -8,6 +8,7 @@ import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 import ReactMarkdown from "react-markdown";
 import useCurrentBreakpoint from "@/lib/tw";
+import React from "react";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
