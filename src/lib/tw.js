@@ -34,8 +34,8 @@ function useCurrentBreakpoint() {
       setBreakpoint(getCurrentBreakpoint());
     }
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  });
+    window.addEventListener("load", handleResize);
+  }, []);
 
   return currentBreakpoint;
 }

@@ -26,7 +26,7 @@ function PrimaryImage({ primaryImage }) {
             <div
               data-src={getStrapiMedia(image)}
               key={image.id}
-              className="translate-y-0 text-black bg-white bg-opacity-80 p-8 shadow-lg max-w-2xl border-primary border-l-4 border-r-4"
+              className="translate-y-0 text-black bg-white bg-opacity-80 p-8 shadow-lg max-w-2xl border-primary border-l-4 border-r-4 text-center"
             >
               <ReactMarkdown>
                 {primaryImage.description[index].md}
