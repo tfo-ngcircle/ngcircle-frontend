@@ -25,6 +25,13 @@
     @apply text-primary;
   }
 
+  h5 {
+    @apply text-xl;
+    @apply font-bold;
+    @apply leading-loose;
+    @apply py-4;
+  }
+
   body {
     @apply text-xl;
     @apply leading-10;

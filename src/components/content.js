@@ -2,10 +2,6 @@ import ReactMarkdown from "react-markdown";
 import MyImage from "./image";
 import Spacer from "./spacer";
 import ParallaxImage from "./parallax";
-import TreeView from "@material-ui/lab/TreeView";
-import TreeItem from "@material-ui/lab/TreeItem";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 function Content({ items }) {
   return (
@@ -47,26 +43,6 @@ function Content({ items }) {
                   }}
                 >
                   <MyImage image={item.media} />
-                  <TreeView
-                    className="!container"
-                    defaultCollapseIcon={<ExpandMoreIcon />}
-                    defaultExpandIcon={<ChevronRightIcon />}
-                  >
-                    <TreeItem nodeId="1" label="Applications">
-                      <TreeItem nodeId="2" label="Calendar" />
-                      <TreeItem nodeId="3" label="Chrome" />
-                      <TreeItem nodeId="4" label="Webstorm" />
-                    </TreeItem>
-                    <TreeItem nodeId="5" label="Documents">
-                      <TreeItem nodeId="10" label="OSS" />
-                      <TreeItem nodeId="6" label="Material-UI">
-                        <TreeItem nodeId="7" label="src">
-                          <TreeItem nodeId="8" label="index.js" />
-                          <TreeItem nodeId="9" label="tree-view.js" />
-                        </TreeItem>
-                      </TreeItem>
-                    </TreeItem>
-                  </TreeView>
                 </div>
               );
           case "shared.media-desc":
