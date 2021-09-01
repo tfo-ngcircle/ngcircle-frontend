@@ -1,7 +1,5 @@
-/* eslint-disable react/display-name */
 import _, { map, groupBy } from "underscore";
-import ReactMarkdown from "react-markdown";
-import styled from "styled-components";
+import Md from "./md";
 
 function Jobs({ jobs }) {
   const jobsByLocation = groupBy(jobs, (job) => job.location.name);
@@ -18,19 +16,7 @@ function Jobs({ jobs }) {
                   <summary className="p-4 text-2xl font-semibold leading-loose text-primary-dark">
                     {item.position}
                   </summary>
-                  <ReactMarkdown
-                    className="px-10 py-4"
-                    components={{
-                      ul: ({ node, ...props }) => (
-                        <ul className="list-disc list-inside" {...props} />
-                      ),
-                      li: ({ node, ...props }) => (
-                        <li className="pl-4" {...props} />
-                      ),
-                    }}
-                  >
-                    {item.description}
-                  </ReactMarkdown>
+                  <Md className="px-10 py-4">{item.description}</Md>
                 </details>
               );
             })}
@@ -40,16 +26,5 @@ function Jobs({ jobs }) {
     </>
   );
 }
-
-const ListItem = styled.li`
-&::before {
-  content: "\2022";
-  color: red;
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
-}
-`;
 
 export default Jobs;

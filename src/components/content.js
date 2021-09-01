@@ -1,7 +1,7 @@
-import ReactMarkdown from "react-markdown";
 import MyImage from "./image";
 import Spacer from "./spacer";
 import ParallaxImage from "./parallax";
+import Md from "./md";
 
 function Content({ items }) {
   return (
@@ -16,12 +16,9 @@ function Content({ items }) {
                   color: item.textColor,
                 }}
               >
-                <ReactMarkdown
-                  key={index}
-                  className="container py-10 space-y-6"
-                >
+                <Md key={index} className="container py-10 space-y-6">
                   {item.md}
-                </ReactMarkdown>
+                </Md>
               </div>
             );
           case "shared.media":
@@ -82,9 +79,7 @@ function getItem(index, item) {
           bgClassName="max-w-none"
         />
         <div>
-          <ReactMarkdown className="m:p-24 p-10">
-            {item.description}
-          </ReactMarkdown>
+          <Md className="m:p-24 p-10">{item.description}</Md>
         </div>
       </div>
     );
@@ -92,9 +87,7 @@ function getItem(index, item) {
     return (
       <div className="md:grid grid-cols-2 items-center">
         <div>
-          <ReactMarkdown className="m:p-24 p-10">
-            {item.description}
-          </ReactMarkdown>
+          <Md className="m:p-24 p-10">{item.description}</Md>
         </div>
         <ParallaxImage
           item={item}
