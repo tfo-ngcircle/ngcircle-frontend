@@ -16,9 +16,11 @@ function Content({ items }) {
                   color: item.textColor,
                 }}
               >
-                <Md key={index} className="container py-10 space-y-6">
-                  {item.md}
-                </Md>
+                <Md
+                  key={index}
+                  className="container py-10 space-y-6"
+                  content={item.md}
+                />
               </div>
             );
           case "shared.media":
@@ -79,7 +81,7 @@ function getItem(index, item) {
           bgClassName="max-w-none"
         />
         <div>
-          <Md className="m:p-24 p-10">{item.description}</Md>
+          <Md className="m:p-24 p-10" content={item.description} />
         </div>
       </div>
     );
@@ -87,7 +89,7 @@ function getItem(index, item) {
     return (
       <div className="md:grid grid-cols-2 items-center">
         <div>
-          <Md className="m:p-24 p-10">{item.description}</Md>
+          <Md className="m:p-24 p-10" content={item.description} />
         </div>
         <ParallaxImage
           item={item}
