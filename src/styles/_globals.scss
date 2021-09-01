@@ -12,6 +12,7 @@
   h2 {
     @apply text-4xl;
     @apply font-light;
+    @apply leading-loose;
   }
   h3 {
     @apply text-3xl;
@@ -20,7 +21,8 @@
   h4 {
     @apply text-2xl;
     @apply font-bold;
-    @apply py-3;
+    @apply leading-loose;
+    @apply text-primary;
   }
 
   body {

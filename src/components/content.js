@@ -30,9 +30,7 @@ function Content({ items }) {
             return (
               <div
                 key={index}
-                className={`${
-                  item.fillScreenWidth ? "pt-16" : "container pt-16"
-                }`}
+                className={`${item.fillScreenWidth ? "" : "container"}`}
               >
                 <MyImage image={item.media} />
               </div>
