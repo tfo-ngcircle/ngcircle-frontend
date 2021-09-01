@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import { Parallax } from "react-parallax";
 import MyImage from "./image";
 import { getStrapiMedia } from "@/lib/media";
+import Spacer from "./spacer";
 
 function Content({ items }) {
   return (
@@ -53,6 +54,8 @@ function Content({ items }) {
                 {getItem(index, item)}
               </div>
             );
+          case "shared.spacer":
+            return <Spacer spacer={item} />;
           default:
             break;
         }
