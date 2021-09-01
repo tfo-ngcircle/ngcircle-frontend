@@ -15,7 +15,7 @@ function Career({ career }) {
       <Container header={header} footer={footer}>
         <CTA cta={page.cta} style={{ backgroundColor: "#000" }} />
         <PrimaryImage primaryImage={page.landing[0]} />
-        {page.content && <Content items={page.content} />}
+        {/* {career.content && <Content items={career.content} />} */}
       </Container>
     </>
   );
