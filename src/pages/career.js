@@ -11,10 +11,10 @@ function Career({ career }) {
   const { header, footer } = useContext(GlobalContext);
   return (
     <>
-      <Seo seo={page.seo} />
+      <Seo seo={career.seo} />
       <Container header={header} footer={footer}>
-        <CTA cta={page.cta} style={{ backgroundColor: "#000" }} />
-        <PrimaryImage primaryImage={page.landing[0]} />
+        {/* <CTA cta={career.cta} style={{ backgroundColor: "#000" }} /> */}
+        {/* <PrimaryImage primaryImage={career.landing[0]} /> */}
         {/* {career.content && <Content items={career.content} />} */}
       </Container>
     </>
