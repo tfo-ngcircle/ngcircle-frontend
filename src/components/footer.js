@@ -28,9 +28,9 @@ const Footer = ({ logo, links, locations }) => {
             <div className="sm:flex space-y-4 sm:space-x-8 lg:space-x-24 sm:space-y-0 justify-evenly">
               {locations.map((location) => (
                 <div key={`location_${location.id}`}>
-                  <b>{location.City}</b>
+                  <b>{location.name}</b>
                   <ReactMarkdown escapeHtml={false}>
-                    {location.Info}
+                    {location.address}
                   </ReactMarkdown>
                 </div>
               ))}
