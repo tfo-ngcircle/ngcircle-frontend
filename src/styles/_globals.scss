@@ -20,10 +20,11 @@
   h4 {
     @apply text-2xl;
     @apply font-bold;
-    @apply pb-3;
+    @apply py-3;
   }
 
   body {
     @apply text-xl;
+    @apply leading-10;
   }
 }

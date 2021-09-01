@@ -11,9 +11,19 @@ function Content({ items }) {
         switch (item.__component) {
           case "shared.markdown":
             return (
-              <ReactMarkdown key={index} className="container py-10 space-y-6">
-                {item.md}
-              </ReactMarkdown>
+              <div
+                style={{
+                  backgroundColor: item.backgroundColor,
+                  color: item.textColor,
+                }}
+              >
+                <ReactMarkdown
+                  key={index}
+                  className="container py-10 space-y-6"
+                >
+                  {item.md}
+                </ReactMarkdown>
+              </div>
             );
           case "shared.media":
             return (
@@ -57,7 +67,7 @@ function getItem(index, item) {
       <div className="md:grid grid-cols-2 flex flex-col-reverse items-center">
         <Parallax
           bgImage={getStrapiMedia(item.media)}
-          strength={500}
+          strength={item.parallax ? 500 : 0}
           contentClassName="m:h-full h-96"
           bgClassName="max-w-none"
         />
