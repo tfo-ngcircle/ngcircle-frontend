@@ -45,7 +45,10 @@ function PrimaryImage({ primaryImage }) {
     case "landing.primary-image":
       const left = primaryImage.leftMedia;
       const right = primaryImage.rightMedia;
-      const minHeight = Math.min(692, primaryImage.backgroundImage.height);
+      const minHeight = Math.min(
+        692,
+        primaryImage.backgroundImage ? primaryImage.backgroundImage.height : 692
+      );
 
       return (
         <Parallax
