@@ -1,9 +1,8 @@
-import React from "react";
 import ReactMarkdown from "react-markdown";
-import { Parallax } from "react-parallax";
 import MyImage from "./image";
-import { getStrapiMedia } from "@/lib/media";
 import Spacer from "./spacer";
+import ParallaxImage from "./parallax";
+import { height } from "tailwindcss/defaultTheme";
 
 function Content({ items }) {
   return (
@@ -27,14 +26,26 @@ function Content({ items }) {
               </div>
             );
           case "shared.media":
-            return (
-              <div
-                key={index}
-                className={`${item.fillScreenWidth ? "" : "container"}`}
-              >
-                <MyImage image={item.media} />
-              </div>
-            );
+            if (item.parallax)
+              return (
+                <ParallaxImage
+                  item={item}
+                  className={`${item.fillScreenWidth ? "" : "container"}`}
+                />
+              );
+            else
+              return (
+                <div
+                  key={index}
+                  className={`${item.fillScreenWidth ? "" : "container"}`}
+                  style={{
+                    height: `${item.height ? item.height + "px" : "unset"}`,
+                    overflow: "hidden",
+                  }}
+                >
+                  <MyImage image={item.media} />
+                </div>
+              );
           case "shared.media-desc":
             return (
               <div
@@ -66,9 +77,8 @@ function getItem(index, item) {
   if (index % 2 == 0) {
     return (
       <div className="md:grid grid-cols-2 flex flex-col-reverse items-center">
-        <Parallax
-          bgImage={getStrapiMedia(item.media)}
-          strength={item.parallax ? 500 : 0}
+        <ParallaxImage
+          item={item}
           contentClassName="m:h-full h-96"
           bgClassName="max-w-none"
         />
@@ -87,9 +97,8 @@ function getItem(index, item) {
             {item.description}
           </ReactMarkdown>
         </div>
-        <Parallax
-          bgImage={getStrapiMedia(item.media)}
-          strength={500}
+        <ParallaxImage
+          item={item}
           contentClassName="m:h-full h-96"
           bgClassName="max-w-none"
         />

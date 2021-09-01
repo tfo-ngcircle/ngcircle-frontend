@@ -11,7 +11,7 @@ const Header = ({ logo, items }) => {
       <header className="container xl:flex items-center justify-between py-4">
         <Link href="/">
           <a>
-            <MyImage image={logo} />
+            <MyImage image={logo} layout="intrinsic" />
           </a>
         </Link>
         <ul className="space-y-4 sm:flex sm:space-x-2 xl:space-x-4 sm:ml-0 sm:space-y-0 xl:ml-4 pt-4 justify-between sm:my-5">

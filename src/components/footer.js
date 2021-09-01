@@ -21,7 +21,7 @@ const Footer = ({ logo, links, locations }) => {
         </div>
         <div className="sm:flex space-y-4 sm:space-y-0 justify-between ">
           <div className="w-[140px] h-[140px]">
-            <MyImage image={logo} />
+            <MyImage image={logo} layout="intrinsic" />
           </div>
           <div className="space-y-4 xl:pr-20">
             <p>Unsere Standorte</p>
