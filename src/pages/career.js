@@ -18,6 +18,7 @@ function Career({ career }) {
         <PrimaryImage primaryImage={career.landing[0]} />
         {career.content && <Content items={career.content} />}
         {career.jobs && <Jobs jobs={career.jobs} />}
+        {career.contentAfter && <Content items={career.contentAfter} />}
       </Container>
     </>
   );

@@ -1,8 +1,4 @@
 /* eslint-disable react/display-name */
-import TreeView from "@material-ui/lab/TreeView";
-import TreeItem from "@material-ui/lab/TreeItem";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import _, { map, groupBy } from "underscore";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
@@ -18,11 +14,8 @@ function Jobs({ jobs }) {
             <h2>{location}</h2>
             {jobss.map((item) => {
               return (
-                <details
-                  key={item.id}
-                  className="border-t border-l border-r border-gray-200"
-                >
-                  <summary className="p-4 text-2xl font-semibold leading-loose border-b border-gray-200">
+                <details key={item.id} className="border border-gray-200">
+                  <summary className="p-4 text-2xl font-semibold leading-loose text-primary-dark">
                     {item.position}
                   </summary>
                   <ReactMarkdown
