@@ -12,7 +12,7 @@ const Header = ({ logo, items }) => {
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      const isShow = currPos.y < 0;
+      const isShow = currPos.y < prevPos.y;
       if (isShow !== shadow) setShadow(isShow);
     },
     [shadow]
@@ -20,9 +20,11 @@ const Header = ({ logo, items }) => {
 
   return (
     <div
-      className={`border-b bg-white sticky transition-shadow duration-500 ease-in-out left-0 right-0 top-0 z-50 ${
-        shadow ? "shadow-md" : ""
-      } `}
+      className={`border-b bg-white sticky transition-all duration-500 ease-in-out left-0 right-0 top-0 z-50 ${
+        shadow
+          ? "-translate-y-full md:translate-y-0 lg:shadow-md"
+          : "translate-y-0"
+      }`}
     >
       <header className={`container xl:flex items-center justify-between py-4`}>
         <Link href="/">
@@ -30,13 +32,13 @@ const Header = ({ logo, items }) => {
             <MyImage image={logo} layout="intrinsic" />
           </a>
         </Link>
-        <ul className="space-y-4 sm:flex sm:space-x-2 xl:space-x-4 sm:ml-0 sm:space-y-0 xl:ml-4 pt-4 justify-between sm:my-5">
+        <ul className="grid grid-cols-2 sm:flex sm:space-x-2 xl:space-x-4 sm:ml-0 sm:space-y-0 xl:ml-4 pt-4 justify-between sm:my-5">
           {items.map((item) => (
             <li
               className={
                 router.asPath == item.destination
                   ? "text-primary text-center"
-                  : "text-center"
+                  : "text-center my-1"
               }
               key={item.id}
             >
