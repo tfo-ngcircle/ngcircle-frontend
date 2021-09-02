@@ -10,18 +10,14 @@ function Content({ items }) {
         switch (item.__component) {
           case "shared.markdown":
             return (
-              <div
-                style={{
-                  backgroundColor: item.backgroundColor,
-                  color: item.textColor,
-                }}
-              >
-                <Md
-                  key={index}
-                  className="container py-10 space-y-6"
-                  content={item.md}
-                />
-              </div>
+              <Md
+                key={index}
+                className={`container ${
+                  item.backgroundImage ? "py-32 px-20 xl:px-40" : "py-10"
+                } space-y-6`}
+                content={item.md}
+                item={item}
+              />
             );
           case "shared.media":
             if (item.parallax)
@@ -80,17 +76,13 @@ function getItem(index, item) {
           contentClassName="m:h-full h-96"
           bgClassName="max-w-none"
         />
-        <div>
-          <Md className="m:p-24 p-10" content={item.description} />
-        </div>
+        <Md className="m:p-24 p-10" content={item.description} />
       </div>
     );
   } else
     return (
       <div className="md:grid grid-cols-2 items-center">
-        <div>
-          <Md className="m:p-24 p-10" content={item.description} />
-        </div>
+        <Md className="m:p-24 p-10" content={item.description} />
         <ParallaxImage
           item={item}
           contentClassName="m:h-full h-96"
