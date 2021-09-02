@@ -24,12 +24,12 @@ function Career({ career }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
   const [career] = await Promise.all([fetchApi("/career")]);
 
   return {
     props: { career },
-    revalidate: 30,
+    // revalidate: 30,
   };
 }
 
