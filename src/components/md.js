@@ -18,6 +18,7 @@ function Md({ className, content, item }) {
             <ul className="list-disc list-inside" {...props} />
           ),
           li: ({ node, ...props }) => <li className="pl-4" {...props} />,
+          a: ({ node, ...props }) => <a className="text-primary" {...props} />,
         }}
       >
         {content}
