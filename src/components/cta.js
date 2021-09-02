@@ -1,14 +1,18 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/components/CTA.module.scss";
 
 const CTA = ({ cta, style }) => {
   return (
-    <section>
-      <div className={styles.container}>
-        <h1>{cta.description}</h1>
-        <div className={styles.action} style={style}>
+    <section className="border-b">
+      <div className="sm:grid sm:grid-cols-4 sm:container items-center overflow">
+        <h1 className="col-span-3 py-14 px-4 sm:px-0 xl:pr-10 overflow-ellipsis overflow-hidden">
+          {cta.description}
+        </h1>
+        <div
+          style={style}
+          className="flex min-h-full md:w-[208px] lg:w-[316px] xl:w-[440px] 2xl:w-[440px] py-8 text-gray-200 hover:text-white space-x-6"
+        >
           <Image
             src="/arrow.svg"
             alt=""

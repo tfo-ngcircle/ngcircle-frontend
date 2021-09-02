@@ -21,23 +21,23 @@ function Page({ page }) {
   );
 }
 
-export async function getStaticPaths() {
-  const pages = await fetchApi(`/pages`);
-  return {
-    paths: pages.map((page) => ({
-      params: {
-        slug: page.slug,
-      },
-    })),
-    fallback: false,
-  };
-}
+// export async function getStaticPaths() {
+//   const pages = await fetchApi(`/pages`);
+//   return {
+//     paths: pages.map((page) => ({
+//       params: {
+//         slug: page.slug,
+//       },
+//     })),
+//     fallback: false,
+//   };
+// }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const pages = await fetchApi(`/pages/?slug=${params.slug}`);
   return {
     props: { page: pages[0] },
-    revalidate: 30,
+    // revalidate: 30,
   };
 }
 

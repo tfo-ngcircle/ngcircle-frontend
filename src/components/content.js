@@ -1,10 +1,7 @@
-import React from "react";
-import ReactMarkdown from "react-markdown";
-import { Parallax } from "react-parallax";
 import MyImage from "./image";
-import styles from "../styles/pages/Page.module.scss";
-import { getStrapiMedia } from "@/lib/media";
-import { Grid, Row, Col } from "react-flexbox-grid/dist/react-flexbox-grid";
+import Spacer from "./spacer";
+import ParallaxImage from "./parallax";
+import Md from "./md";
 
 function Content({ items }) {
   return (
@@ -13,24 +10,59 @@ function Content({ items }) {
         switch (item.__component) {
           case "shared.markdown":
             return (
-              <Grid className={styles.content}>
-                <ReactMarkdown>{item.md}</ReactMarkdown>
-              </Grid>
+              <div
+                style={{
+                  backgroundColor: item.backgroundColor,
+                  color: item.textColor,
+                }}
+              >
+                <Md
+                  key={index}
+                  className="container py-10 space-y-6"
+                  content={item.md}
+                />
+              </div>
             );
           case "shared.media":
-            return (
-              <Grid fluid={item.fillScreenWidth} className={styles.content}>
-                <MyImage image={item.media} />
-              </Grid>
-            );
+            if (item.parallax)
+              return (
+                <ParallaxImage
+                  item={item}
+                  className={`${item.fillScreenWidth ? "" : "container"}`}
+                />
+              );
+            else
+              return (
+                <div
+                  key={index}
+                  className={`${item.fillScreenWidth ? "" : "container"}`}
+                  style={{
+                    height: `${item.height ? item.height + "px" : "unset"}`,
+                    overflow: "hidden",
+                  }}
+                >
+                  <MyImage image={item.media} />
+                </div>
+              );
           case "shared.media-desc":
             return (
-              <Grid className={styles.grid}>
-                <Row middle="xs" between="xs">
-                  {getItem(index, item)}
-                </Row>
-              </Grid>
+              <div
+                key={index}
+                className={`md:container ${
+                  item.alignment === "left"
+                    ? "text-left"
+                    : item.alignment === "right"
+                    ? "text-right"
+                    : item.alignment === "justify"
+                    ? "text-justify"
+                    : "text-center"
+                }`}
+              >
+                {getItem(index, item)}
+              </div>
             );
+          case "shared.spacer":
+            return <Spacer spacer={item} />;
           default:
             break;
         }
@@ -42,33 +74,29 @@ function Content({ items }) {
 function getItem(index, item) {
   if (index % 2 == 0) {
     return (
-      <>
-        <Col lg={6} xs={12} sm={12} md={6}>
-          <Parallax
-            bgImage={getStrapiMedia(item.media)}
-            strength={500}
-            contentClassName={styles.parallaxC}
-          />
-        </Col>
-        <Col lg={5} xs={12} sm={12} md={6}>
-          <ReactMarkdown>{item.description}</ReactMarkdown>
-        </Col>
-      </>
+      <div className="md:grid grid-cols-2 flex flex-col-reverse items-center">
+        <ParallaxImage
+          item={item}
+          contentClassName="m:h-full h-96"
+          bgClassName="max-w-none"
+        />
+        <div>
+          <Md className="m:p-24 p-10" content={item.description} />
+        </div>
+      </div>
     );
   } else
     return (
-      <>
-        <Col lg={5} xs={12} sm={12} md={6}>
-          <ReactMarkdown>{item.description}</ReactMarkdown>
-        </Col>
-        <Col lg={6} xs={12} sm={12} md={6}>
-          <Parallax
-            bgImage={getStrapiMedia(item.media)}
-            strength={500}
-            contentClassName={styles.parallaxC}
-          />
-        </Col>
-      </>
+      <div className="md:grid grid-cols-2 items-center">
+        <div>
+          <Md className="m:p-24 p-10" content={item.description} />
+        </div>
+        <ParallaxImage
+          item={item}
+          contentClassName="m:h-full h-96"
+          bgClassName="max-w-none"
+        />
+      </div>
     );
 }
 
