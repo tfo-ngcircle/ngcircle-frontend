@@ -9,10 +9,13 @@ function Jobs({ jobs }) {
       {map(jobsByLocation, (jobss, location) => {
         return (
           <div className="container">
-            <h2>{location}</h2>
+            <h2 className="pt-8 pb-2">{location}</h2>
             {jobss.map((item) => {
               return (
-                <details key={item.id} className="border border-gray-200">
+                <details
+                  key={item.id}
+                  className="border-t border-l border-r last:border-b border-gray-200 cursor-pointer"
+                >
                   <summary className="p-4 text-2xl font-semibold leading-loose text-primary-dark">
                     {item.position}
                   </summary>
