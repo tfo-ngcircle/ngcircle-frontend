@@ -14,9 +14,9 @@ function Jobs({ jobs }) {
               return (
                 <details
                   key={item.id}
-                  className="border-t border-l border-r last:border-b border-gray-200 cursor-pointer"
+                  className="border-t border-l border-r last:border-b border-gray-200"
                 >
-                  <summary className="p-4 text-2xl font-semibold leading-loose text-primary-dark">
+                  <summary className="p-4 text-2xl font-semibold leading-loose text-primary-dark cursor-pointer">
                     {item.position}
                   </summary>
                   <Md

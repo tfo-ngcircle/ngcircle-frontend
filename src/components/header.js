@@ -20,10 +20,8 @@ const Header = ({ logo, items }) => {
 
   return (
     <div
-      className={`border-b bg-white sticky transition-all duration-500 ease-in-out left-0 right-0 top-0 z-50 ${
-        shadow
-          ? "-translate-y-full md:translate-y-0 lg:shadow-md"
-          : "translate-y-0"
+      className={`border-b origin-top bg-white sticky transition-all duration-500 ease-in-out left-0 right-0 top-0 z-50 overflow-hidden ${
+        shadow ? "scale-y-0 md:scale-y-100 lg:shadow-md" : "translate-y-0"
       }`}
     >
       <header className={`container xl:flex items-center justify-between py-4`}>
