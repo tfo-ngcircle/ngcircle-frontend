@@ -19,7 +19,10 @@ function Jobs({ jobs }) {
                   <summary className="p-4 text-2xl font-semibold leading-loose text-primary-dark">
                     {item.position}
                   </summary>
-                  <Md className="px-10 py-4" content={item.description} />
+                  <Md
+                    className="px-4 md:px-10 py-4"
+                    content={item.description}
+                  />
                 </details>
               );
             })}

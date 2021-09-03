@@ -73,6 +73,7 @@ function getItem(index, item) {
       <div className="md:grid grid-cols-2 flex flex-col-reverse items-center">
         <ParallaxImage
           item={item}
+          className="w-full"
           contentClassName="m:h-full h-96"
           bgClassName="max-w-none"
         />

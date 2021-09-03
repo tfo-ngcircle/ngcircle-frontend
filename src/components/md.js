@@ -15,9 +15,11 @@ function Md({ className, content, item }) {
         className={className}
         components={{
           ul: ({ node, ...props }) => (
-            <ul className="list-disc list-inside" {...props} />
+            <ul className="list-disc pl-5 lg:pl-6" {...props} />
           ),
-          li: ({ node, ...props }) => <li className="pl-4" {...props} />,
+          li: ({ node, ...props }) => (
+            <li className="pl-3 marker:text-primary" {...props} />
+          ),
           a: ({ node, ...props }) => <a className="text-primary" {...props} />,
         }}
       >

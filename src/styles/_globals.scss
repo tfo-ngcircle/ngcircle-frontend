@@ -6,34 +6,24 @@
 
 @layer base {
   h1 {
-    @apply text-5xl;
-    @apply font-light;
+    @apply text-4xl md:text-5xl font-light;
   }
   h2 {
-    @apply text-4xl;
-    @apply font-normal;
-    @apply leading-loose;
+    @apply text-3xl md:text-4xl font-normal leading-loose;
   }
   h3 {
-    @apply text-3xl;
+    @apply text-2xl md:text-3xl;
   }
 
   h4 {
-    @apply text-2xl;
-    @apply font-bold;
-    @apply leading-loose;
-    @apply text-primary;
+    @apply text-2xl font-bold leading-loose text-primary;
   }
 
   h5 {
-    @apply text-xl;
-    @apply font-bold;
-    @apply leading-loose;
-    @apply py-4;
+    @apply text-xl font-bold leading-loose py-4;
   }
 
   body {
-    @apply text-xl;
-    @apply leading-10;
+    @apply text-xl leading-10;
   }
 }

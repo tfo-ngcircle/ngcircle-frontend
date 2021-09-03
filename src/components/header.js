@@ -32,14 +32,12 @@ const Header = ({ logo, items }) => {
             <MyImage image={logo} layout="intrinsic" />
           </a>
         </Link>
-        <ul className="grid grid-cols-2 sm:flex sm:space-x-2 xl:space-x-4 sm:ml-0 sm:space-y-0 xl:ml-4 pt-4 justify-between sm:my-5">
+        <ul className="divide-y divide-gray-200 sm:divide-y-0 sm:flex sm:space-x-2 xl:space-x-4 sm:ml-0 sm:space-y-0 xl:ml-4 mt-4 justify-between sm:my-5">
           {items.map((item) => (
             <li
-              className={
-                router.asPath == item.destination
-                  ? "text-primary text-center"
-                  : "text-center my-1"
-              }
+              className={`text-center py-1 bg-white ${
+                router.asPath == item.destination ? "text-primary" : ""
+              }`}
               key={item.id}
             >
               <MyLink destination={item.destination} label={item.label} />
