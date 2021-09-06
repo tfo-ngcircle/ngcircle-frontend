@@ -33,7 +33,7 @@ function Header({ logo, items }) {
         <ul className="divide-y divide-gray-200 sm:divide-y-0 sm:flex sm:space-x-2 xl:space-x-4 sm:ml-0 sm:space-y-0 xl:ml-4 mt-4 justify-between sm:my-5">
           {items.map((item) => (
             <li
-              className={`text-center py-1 bg-white ${
+              className={`text-center py-1 ${
                 router.asPath == item.destination ? "text-primary" : ""
               }`}
               key={item.id}
