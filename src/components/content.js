@@ -2,6 +2,7 @@ import MyImage from "./image";
 import Spacer from "./spacer";
 import ParallaxImage from "./parallax";
 import Md from "./md";
+import NetworkItems from "./networkItems";
 
 function Content({ items }) {
   return (
@@ -61,6 +62,8 @@ function Content({ items }) {
             );
           case "shared.spacer":
             return <Spacer key={index} spacer={item} />;
+          case "shared.network-group":
+            return <NetworkItems content={item} />;
           default:
             break;
         }
