@@ -13,7 +13,9 @@ function Content({ items }) {
               <Md
                 key={index}
                 className={`container ${
-                  item.backgroundImage ? "py-32 px-20 xl:px-40" : "py-10"
+                  item.backgroundImage
+                    ? "py-32 px-10 sm:px-20 xl:px-40"
+                    : "py-10"
                 } space-y-6`}
                 content={item.md}
                 item={item}
@@ -77,13 +79,13 @@ function getItem(index, item) {
           contentClassName="m:h-full h-96"
           bgClassName="max-w-none"
         />
-        <Md className="m:p-24 p-10" content={item.description} />
+        <Md className="m:p-24 p-6" content={item.description} />
       </div>
     );
   } else
     return (
       <div className="md:grid grid-cols-2 items-center">
-        <Md className="m:p-24 p-10" content={item.description} />
+        <Md className="m:p-24 p-6" content={item.description} />
         <ParallaxImage
           item={item}
           contentClassName="m:h-full h-96"
