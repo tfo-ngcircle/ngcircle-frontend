@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "next/link";
 
-const MyLink = ({ label, destination }) => {
+const MyLink = ({ label, destination, className }) => {
   return (
     <Link href={destination}>
-      <a>{label}</a>
+      <a className={className}>{label}</a>
     </Link>
   );
 };

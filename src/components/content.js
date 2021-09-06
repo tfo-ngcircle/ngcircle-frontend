@@ -82,13 +82,13 @@ function getItem(index, item) {
           contentClassName="m:h-full h-96"
           bgClassName="max-w-none"
         />
-        <Md className="m:p-24 p-6" content={item.description} />
+        <Md className="m:p-24 p-6 md:px-14" content={item.description} />
       </div>
     );
   } else
     return (
       <div className="md:grid grid-cols-2 items-center">
-        <Md className="m:p-24 p-6" content={item.description} />
+        <Md className="m:p-24 p-6 md:px-14" content={item.description} />
         <ParallaxImage
           item={item}
           contentClassName="m:h-full h-96"

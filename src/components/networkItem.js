@@ -1,4 +1,5 @@
 import MyImage from "./image";
+import MyLink from "./link";
 import Md from "./md";
 
 function NetworkItem({ media, content }) {
@@ -10,6 +11,11 @@ function NetworkItem({ media, content }) {
         <MyImage image={media} layout="fill" objectFit="contain" />
       </div>
       <Md className="flex-grow pt-6" content={content}></Md>
+      <MyLink
+        label="Learn more"
+        destination="/#"
+        className="text-primary uppercase"
+      />
     </div>
   );
 }
