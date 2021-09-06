@@ -10,6 +10,9 @@ module.exports = {
         DEFAULT: "#c00000",
         dark: "#65211f",
       },
+      secondary: {
+        DEFAULT: "#0695B2",
+      },
       transparent: "transparent",
       current: "currentColor",
       black: colors.black,

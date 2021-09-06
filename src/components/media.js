@@ -1,9 +1,9 @@
 import MyImage from "./image";
 import ReactPlayer from "react-player";
 
-function Media({ media }) {
+function Media({ media, className }) {
   if (media.mime.includes("image")) {
-    return <MyImage image={media} />;
+    return <MyImage image={media} className={className} />;
   } else if (media.mime.includes("video")) {
     return (
       <ReactPlayer
