@@ -5,7 +5,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useScrollPosition } from "@/lib/useScrollPosition";
 
-function Header({ logo, items }) {
+function Header({ logo, pages, items }) {
   const router = useRouter();
 
   const [shadow, setShadow] = useState(false);
@@ -31,6 +31,16 @@ function Header({ logo, items }) {
           </a>
         </Link>
         <ul className="divide-y divide-gray-200 sm:divide-y-0 sm:flex sm:space-x-2 xl:space-x-4 sm:ml-0 sm:space-y-0 xl:ml-4 mt-4 justify-between sm:my-5">
+          {pages.map((item) => (
+            <li
+              className={`text-center py-1 ${
+                router.asPath == item.slug ? "text-primary" : ""
+              }`}
+              key={item.id}
+            >
+              <MyLink destination={item.slug} label={item.title} />
+            </li>
+          ))}
           {items.map((item) => (
             <li
               className={`text-center py-1 ${

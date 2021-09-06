@@ -5,8 +5,10 @@ export default function Home({ homepage }) {
   return <Page page={homepage} />;
 }
 
-export async function getServerSideProps(context) {
-  const [homepage] = await Promise.all([fetchApi("/homepage")]);
+export async function getServerSideProps({ locale }) {
+  const [homepage] = await Promise.all([
+    fetchApi(`/homepage?_locale=${locale}`),
+  ]);
 
   return {
     props: { homepage },

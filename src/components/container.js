@@ -4,7 +4,7 @@ import Header from "./header";
 function Container({ header, footer, children }) {
   return (
     <>
-      <Header logo={header.logo} items={header.items} />
+      <Header logo={header.logo} items={header.items} pages={header.pages} />
       {children}
       <Footer
         logo={footer.logo}

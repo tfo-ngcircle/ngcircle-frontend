@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps }) {
 
 MyApp.getInitialProps = async (ctx) => {
   const appProps = await App.getInitialProps(ctx);
-  const global = await fetchApi("/global");
+  const global = await fetchApi(`/global?_locale=${ctx.ctx.locale}`);
   return { ...appProps, pageProps: { global } };
 };
 

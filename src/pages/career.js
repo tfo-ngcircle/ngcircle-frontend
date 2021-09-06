@@ -24,8 +24,8 @@ function Career({ career }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const [career] = await Promise.all([fetchApi("/career")]);
+export async function getServerSideProps({ locale }) {
+  const [career] = await Promise.all([fetchApi(`/career?_locale=${locale}`)]);
 
   return {
     props: { career },

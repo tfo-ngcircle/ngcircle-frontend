@@ -33,8 +33,8 @@ function Page({ page }) {
 //   };
 // }
 
-export async function getServerSideProps({ params }) {
-  const pages = await fetchApi(`/pages/?slug=${params.slug}`);
+export async function getServerSideProps({ params, locale }) {
+  const pages = await fetchApi(`/pages/?slug=${params.slug}&_locale=${locale}`);
   return {
     props: { page: pages[0] },
     // revalidate: 30,
