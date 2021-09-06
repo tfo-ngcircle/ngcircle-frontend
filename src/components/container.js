@@ -1,7 +1,7 @@
 import Footer from "./footer";
 import Header from "./header";
 
-const Container = ({ header, footer, children }) => {
+function Container({ header, footer, children }) {
   return (
     <>
       <Header logo={header.logo} items={header.items} />
@@ -13,6 +13,6 @@ const Container = ({ header, footer, children }) => {
       />
     </>
   );
-};
+}
 
 export default Container;

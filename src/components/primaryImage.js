@@ -1,7 +1,5 @@
 import { getStrapiMedia } from "@/lib/media";
 import { Parallax } from "react-parallax";
-import MyImage from "./image";
-import ReactPlayer from "react-player";
 import AwesomeSlider from "react-awesome-slider";
 import styled from "styled-components";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
@@ -9,6 +7,7 @@ import "react-awesome-slider/dist/styles.css";
 import ReactMarkdown from "react-markdown";
 import useCurrentBreakpoint from "@/lib/tw";
 import React from "react";
+import Media from "./media";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -60,9 +59,9 @@ function PrimaryImage({ primaryImage }) {
             className="container flex flex-wrap justify-between"
             style={{ minHeight: `${minHeight}px` }}
           >
-            {left && renderMedia(left)}
+            {left && <Media media={left} />}
             <div></div>
-            {right && renderMedia(right)}
+            {right && <Media media={right} />}
           </div>
         </Parallax>
       );
@@ -86,26 +85,3 @@ const Slider = styled(AutoplaySlider)`
 `;
 
 export default PrimaryImage;
-
-function renderMedia(media) {
-  if (media.mime.includes("image")) {
-    return <MyImage image={media} />;
-  } else if (media.mime.includes("video")) {
-    return (
-      <ReactPlayer
-        url={getStrapiMedia(media)}
-        controls
-        loop
-        muted
-        playing
-        config={{
-          file: {
-            attributes: {
-              controlsList: "nodownload",
-            },
-          },
-        }}
-      />
-    );
-  }
-}

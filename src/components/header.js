@@ -5,7 +5,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useScrollPosition } from "@/lib/useScrollPosition";
 
-const Header = ({ logo, items }) => {
+function Header({ logo, items }) {
   const router = useRouter();
 
   const [shadow, setShadow] = useState(false);
@@ -45,6 +45,6 @@ const Header = ({ logo, items }) => {
       </header>
     </div>
   );
-};
+}
 
 export default Header;

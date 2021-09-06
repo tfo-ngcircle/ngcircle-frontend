@@ -58,7 +58,7 @@ function Content({ items }) {
               </div>
             );
           case "shared.spacer":
-            return <Spacer spacer={item} />;
+            return <Spacer key={index} spacer={item} />;
           default:
             break;
         }
