@@ -5,7 +5,7 @@ import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpIcon } from "@heroicons/react/solid";
 
 const languages = [
-  { id: 1, name: "Deutch", tag: "de", flag: "https://huel.io/flags/de.svg" },
+  { id: 1, name: "Deutsch", tag: "de", flag: "https://huel.io/flags/de.svg" },
   { id: 2, name: "English", tag: "en", flag: "https://huel.io/flags/gb.svg" },
 ];
 
@@ -27,7 +27,7 @@ function Language({ className }) {
       value={selectedLanguage}
       onChange={(selected) => {
         setSelectedLanguage(selected);
-        router.push(router.asPath, router.asPath, { locale: selected.tag });
+        router.push("/", "/", { locale: selected.tag });
       }}
     >
       {({ open }) => (

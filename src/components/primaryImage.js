@@ -44,20 +44,16 @@ function PrimaryImage({ primaryImage }) {
     case "landing.primary-image":
       const left = primaryImage.leftMedia;
       const right = primaryImage.rightMedia;
-      const minHeight = Math.min(
-        692,
-        primaryImage.backgroundImage ? primaryImage.backgroundImage.height : 692
-      );
 
       return (
         <Parallax
           bgImage={getStrapiMedia(primaryImage.backgroundImage)}
-          strength={300}
+          strength={220}
           bgClassName="max-w-none"
         >
           <div
             className="container flex flex-wrap justify-between"
-            style={{ minHeight: `${minHeight}px` }}
+            style={{ minHeight: `692px` }}
           >
             {left && <Media media={left} />}
             <div></div>
