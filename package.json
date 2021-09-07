@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.1",
+    "@heroicons/react": "^1.0.4",
     "@tailwindcss/typography": "tailwindcss/typography",
     "autoprefixer": "^10.3.1",
     "next": "11.0.1",

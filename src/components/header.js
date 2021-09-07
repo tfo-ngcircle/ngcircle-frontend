@@ -20,7 +20,7 @@ function Header({ logo, pages, items }) {
 
   return (
     <div
-      className={`w-full border-b origin-top bg-white sticky transition-all duration-500 ease-in-out left-0 right-0 top-0 z-50 overflow-hidden ${
+      className={`w-full border-b origin-top bg-white sticky transition-all duration-500 ease-in-out left-0 right-0 top-0 z-40 overflow-hidden ${
         shadow ? "scale-y-0 md:scale-y-100 lg:shadow-md" : "translate-y-0"
       }`}
     >
