@@ -35,6 +35,11 @@ function Page({ page }) {
 
 export async function getServerSideProps({ params, locale }) {
   const pages = await fetchApi(`/pages/?slug=${params.slug}&_locale=${locale}`);
+
+  if (pages.length < 1)
+    return {
+      notFound: true,
+    };
   return {
     props: { page: pages[0] },
     // revalidate: 30,
