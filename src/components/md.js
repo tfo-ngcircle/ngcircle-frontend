@@ -21,6 +21,7 @@ function Md({ className, content, item }) {
             <li className="pl-3 marker:text-primary" {...props} />
           ),
           a: ({ node, ...props }) => <a className="text-primary" {...props} />,
+          p: ({ node, ...props }) => <p className="my-4" {...props} />,
         }}
       >
         {content}
