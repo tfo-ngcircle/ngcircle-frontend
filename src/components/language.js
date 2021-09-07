@@ -5,8 +5,8 @@ import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpIcon } from "@heroicons/react/solid";
 
 const languages = [
-  { id: 1, name: "English", tag: "en", flag: "https://huel.io/flags/gb.svg" },
-  { id: 2, name: "Deutch", tag: "de", flag: "https://huel.io/flags/de.svg" },
+  { id: 1, name: "Deutch", tag: "de", flag: "https://huel.io/flags/de.svg" },
+  { id: 2, name: "English", tag: "en", flag: "https://huel.io/flags/gb.svg" },
 ];
 
 function classNames(...classes) {
@@ -15,7 +15,12 @@ function classNames(...classes) {
 
 function Language({ className }) {
   const router = useRouter();
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+
+  const language = languages.find((lang) => lang.tag === router.locale);
+
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    language || languages[0]
+  );
 
   return (
     <Listbox
