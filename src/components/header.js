@@ -37,7 +37,7 @@ function Header({ logo, pages, items }) {
                 className={`text-center py-1 ${
                   router.asPath == item.slug ? "text-primary" : ""
                 }`}
-                key={item.id}
+                key={item.slug}
               >
                 <MyLink destination={item.slug} label={item.title} />
               </li>

@@ -14,7 +14,7 @@ const Footer = ({ logo, links, locations }) => {
               <MyLink
                 label={link.label}
                 destination={link.destination}
-                key={link.destination}
+                key={link.id}
               />
             ))}
           </div>
