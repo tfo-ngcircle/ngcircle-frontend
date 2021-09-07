@@ -9,7 +9,7 @@ const Footer = ({ logo, links, locations }) => {
       <footer className="container text-gray-300 space-y-5 py-12 p-8 xl:px-20">
         <div className="sm:flex justify-between border-b pb-5">
           <p>© {new Date().getFullYear()} | NgC GmbH</p>
-          <div className="space-x-4">
+          <div className="space-x-4 flex flex-wrap">
             {links.map((link) => (
               <MyLink
                 label={link.label}
