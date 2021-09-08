@@ -7,9 +7,6 @@ const ShortInput = React.forwardRef(
         {label}
       </label>
       <div className="mt-2 flex rounded-md shadow-sm">
-        <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-base">
-          {icon}
-        </span>
         <input
           onChange={onChange}
           onBlur={onBlur}
@@ -17,7 +14,7 @@ const ShortInput = React.forwardRef(
           ref={ref}
           name={id}
           id={id}
-          className={`py-2 px-3 focus:ring focus:border-secondary focus:outline-none flex-1 block w-full rounded-none rounded-r-md sm:text-base border-gray-300 border ${className}`}
+          className={`py-2 px-3 focus:ring focus:border-secondary focus:outline-none flex-1 block w-full rounded-md sm:text-base border-gray-300 border ${className}`}
           placeholder={placeholder || ``}
         />
       </div>
