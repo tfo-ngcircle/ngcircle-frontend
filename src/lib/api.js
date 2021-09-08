@@ -21,7 +21,7 @@ export async function postApi(path, data) {
   };
 
   const requestUrl = getStrapiUrl(path);
-  const response = await fetch("http://localhost:1337" + path, requestOptions);
+  const response = await fetch(requestUrl, requestOptions);
   return await response.json();
 }
 
