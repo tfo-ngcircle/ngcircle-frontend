@@ -47,6 +47,7 @@ function Contact({ contact }) {
     postApi("/messages", data).then(() => {
       setIsOpen(true);
       reset();
+      setCaptchaValid(false);
       captchaRef.current.resetCaptcha();
     });
 

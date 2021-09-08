@@ -1,19 +1,25 @@
 import { getStrapiMedia } from "@/lib/media";
+import { getTextColor } from "src/utils/textColor";
 import styled, { css } from "styled-components";
 import NetworkItem from "./networkItem";
 
 function NetworkItems({ content }) {
   return (
     <Group
+      color={content.backgroundColor && getTextColor(content.backgroundColor)}
       backgroundColor={content.backgroundColor && content.backgroundColor}
       backgroundImage={
         content.backgroundImage && getStrapiMedia(content.backgroundImage)
       }
       textAlign={content.textAlignment && content.textAlignment}
-      className="grid py-10 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 px-4 sm:px-8 gap-14 sm:gap-8 lg:px-14 lg:gap-14 xl:px-32"
+      className={`grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 ${
+        !content.showMedia
+          ? "divide-x divide-gray-50 divide-opacity-50"
+          : "py-10 px-4 sm:px-8 gap-14 sm:gap-8 lg:px-14 lg:gap-14 xl:px-32"
+      }`}
     >
       {content.items.map((item) => (
-        <NetworkItem key={item.id} media={item.media} content={item.content} />
+        <NetworkItem key={item.id} item={item} showMedia={content.showMedia} />
       ))}
     </Group>
   );
@@ -23,6 +29,12 @@ export default NetworkItems;
 
 const Group = styled.div`
   background-size: cover;
+
+  ${(props) =>
+    props.color &&
+    css`
+      color: ${props.color};
+    `}
 
   ${(props) =>
     props.backgroundColor &&
