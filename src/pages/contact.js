@@ -28,14 +28,13 @@ function Contact({ contact }) {
     name: Yup.string().min(3).max(64),
     email: Yup.string().email().required(),
     message: Yup.string().min(3).max(300),
-    privacy: Yup.bool().oneOf([true], "Accept Ts & Cs is required"),
+    privacy: Yup.bool().oneOf([true], "You must agree to the privacy policy"),
   });
 
   const {
     register,
     handleSubmit,
-    errors,
-    formState: { isSubmitting, isDirty, isValid },
+    formState: { isSubmitting, isDirty, isValid, errors },
   } = useForm({
     mode: "onChange",
     resolver: yupResolver(validationSchema),
@@ -52,7 +51,7 @@ function Contact({ contact }) {
         {contact.content && <Content items={contact.content} />}
 
         <form
-          className="container py-5 space-y-6"
+          className="container pb-14 space-y-6"
           onSubmit={handleSubmit(onSubmit)}
         >
           <ShortInput
@@ -61,6 +60,7 @@ function Contact({ contact }) {
             placeholder="John Doe"
             icon={<IdentificationIcon className="h-5 w-5" aria-hidden="true" />}
             {...register("name")}
+            className={errors.name && "bg-red-50 ring-2 ring-red-500"}
           />
           <ShortInput
             id="email"
@@ -68,20 +68,27 @@ function Contact({ contact }) {
             placeholder="you@example.com"
             icon={<AtSymbolIcon className="h-5 w-5" aria-hidden="true" />}
             {...register("email")}
+            className={errors.email && "bg-red-50 ring-2 ring-red-500"}
           />
           <TextArea
             id="message"
             label="Message"
             {...register("message")}
-            className="ring-primary"
+            className={errors.message && "bg-red-50 ring-2 ring-red-500"}
           />
           <div className="flex flex-col sm:flex-none sm:grid space-y-3 xl:space-y-0 xl:grid-cols-3 xl:space-x-2">
-            <Checkbox
-              id="privacy"
-              label="I have read and agree to the Privacy Policy."
-              //   className="md:col-span-4 xl:col-span-5"
-              {...register("privacy")}
-            />
+            <div className="">
+              <Checkbox
+                id="privacy"
+                label="I have read and agree to the Privacy Policy."
+                //   className="md:col-span-4 xl:col-span-5"
+                {...register("privacy")}
+              />
+              <div className="text-sm text-red-500 px-7 -mt-1">
+                {errors.privacy?.message}
+              </div>
+            </div>
+
             <HCaptcha
               languageOverride={router.locale}
               sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_KEY}
