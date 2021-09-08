@@ -1,7 +1,7 @@
 import React from "react";
 
 const ShortInput = React.forwardRef(
-  ({ onChange, onBlur, id, label, placeholder, icon }, ref) => (
+  ({ onChange, onBlur, id, label, placeholder, icon, className }, ref) => (
     <div>
       <label htmlFor={id} className="block text-base font-medium text-gray-700">
         {label}
@@ -17,7 +17,7 @@ const ShortInput = React.forwardRef(
           ref={ref}
           name={id}
           id={id}
-          className="py-2 px-3 focus:ring-primary focus:border-primary flex-1 block w-full rounded-none rounded-r-md sm:text-base border-gray-300 border"
+          className={`py-2 px-3 focus:ring focus:border-secondary focus:outline-none flex-1 block w-full rounded-none rounded-r-md sm:text-base border-gray-300 border ${className}`}
           placeholder={placeholder || ``}
         />
       </div>
