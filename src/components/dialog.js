@@ -2,11 +2,13 @@ import { Dialog, Transition } from "@headlessui/react";
 
 function MyDialog({
   title,
-  description,
   isOpen,
   onClose,
   onPositive,
+  positiveText,
   onNegative,
+  negativeText,
+  children,
 }) {
   return (
     <Transition
@@ -32,24 +34,21 @@ function MyDialog({
             >
               {title}
             </Dialog.Title>
-            <Dialog.Description as="p" className="text-sm text-gray-500">
-              {description}
-            </Dialog.Description>
-
+            {children}
             <div className="!mt-4 space-x-3 justify-end flex">
               {onNegative && (
                 <button
                   onClick={onNegative}
                   className="disabled:bg-gray-300 shadow text-base font-medium rounded-md text-white bg-gray-400 hover:bg-gray-500 px-4 py-2 min-w-[6em]"
                 >
-                  Cancel
+                  {negativeText}
                 </button>
               )}
               <button
                 className="disabled:bg-gray-500 shadow text-base font-medium rounded-md text-white bg-primary hover:bg-primary-dark px-4 py-2 min-w-[6em]"
                 onClick={onPositive}
               >
-                Ok
+                {positiveText}
               </button>
             </div>
           </div>

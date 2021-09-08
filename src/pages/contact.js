@@ -16,6 +16,7 @@ import * as Yup from "yup";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { useRouter } from "next/router";
 import MyDialog from "@/components/dialog";
+import Md from "@/components/md";
 
 function Contact({ contact }) {
   const { header, footer } = useContext(GlobalContext);
@@ -42,9 +43,9 @@ function Contact({ contact }) {
   });
 
   const onSubmit = (data) =>
-    postApi("/messages", data).then((res) => console.log(res));
+    postApi("/messages", data).then((res) => setIsOpen(true));
 
-  let [isOpen, setIsOpen] = useState(true);
+  let [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -107,13 +108,20 @@ function Contact({ contact }) {
         </form>
         {contact.contentAfter && <Content items={contact.contentAfter} />}
       </Container>
-      <MyDialog
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        onPositive={() => setIsOpen(false)}
-        title="Hello"
-        description="Hello"
-      />
+      {contact.dialog && (
+        <MyDialog
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          onPositive={() => setIsOpen(false)}
+          title={contact.dialog.title}
+          positiveText={contact.dialog.positiveText}
+        >
+          <Md
+            className="text-sm text-gray-500"
+            content={contact.dialog.description}
+          />
+        </MyDialog>
+      )}
     </>
   );
 }
