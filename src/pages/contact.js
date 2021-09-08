@@ -1,4 +1,4 @@
-import { fetchApi } from "@/lib/api";
+import { fetchApi, postApi } from "@/lib/api";
 import { GlobalContext } from "./_app";
 import { useContext, useState } from "react";
 import CTA from "@/components/cta";
@@ -15,6 +15,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { useRouter } from "next/router";
+import MyDialog from "@/components/dialog";
 
 function Contact({ contact }) {
   const { header, footer } = useContext(GlobalContext);
@@ -40,7 +41,10 @@ function Contact({ contact }) {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) =>
+    postApi("/messages", data).then((res) => console.log(res));
+
+  let [isOpen, setIsOpen] = useState(true);
 
   return (
     <>
@@ -64,7 +68,7 @@ function Contact({ contact }) {
           />
           <ShortInput
             id="email"
-            label="email"
+            label="Email"
             placeholder="you@example.com"
             icon={<AtSymbolIcon className="h-5 w-5" aria-hidden="true" />}
             {...register("email")}
@@ -81,7 +85,6 @@ function Contact({ contact }) {
               <Checkbox
                 id="privacy"
                 label="I have read and agree to the Privacy Policy."
-                //   className="md:col-span-4 xl:col-span-5"
                 {...register("privacy")}
               />
               <div className="text-sm text-red-500 px-7 -mt-1">
@@ -104,6 +107,13 @@ function Contact({ contact }) {
         </form>
         {contact.contentAfter && <Content items={contact.contentAfter} />}
       </Container>
+      <MyDialog
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        onPositive={() => setIsOpen(false)}
+        title="Hello"
+        description="Hello"
+      />
     </>
   );
 }

@@ -39,7 +39,7 @@ function Header({ logo, pages, items }) {
                 }`}
                 key={item.slug}
               >
-                <MyLink destination={item.slug} label={item.title} />
+                <MyLink destination={"/" + item.slug} label={item.title} />
               </li>
             ))}
           {items.map((item) => (
