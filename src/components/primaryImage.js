@@ -8,6 +8,7 @@ import ReactMarkdown from "react-markdown";
 import useCurrentBreakpoint from "@/lib/tw";
 import React from "react";
 import Media from "./media";
+import Md from "./md";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -53,10 +54,18 @@ function PrimaryImage({ primaryImage }) {
         >
           <div
             className="container flex flex-wrap justify-between"
-            style={{ minHeight: `692px` }}
+            style={{ minHeight: `680px` }}
           >
             {left && <Media media={left} />}
-            <div></div>
+            <div className="relative md:mb-32 w-full">
+              {primaryImage.description && (
+                <Md
+                  content={primaryImage.description}
+                  className="absolute bottom-0 inset-x-0 text-white w-full text-shadow-0"
+                  largeHeadings
+                />
+              )}
+            </div>
             {right && <Media media={right} />}
           </div>
         </Parallax>

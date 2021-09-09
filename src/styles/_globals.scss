@@ -32,4 +32,8 @@
   a {
     @apply font-display font-medium;
   }
+
+  .text-shadow-0 {
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+  }
 }
