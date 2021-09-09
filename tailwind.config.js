@@ -22,7 +22,8 @@ module.exports = {
       red: colors.rose,
     },
     fontFamily: {
-      sans: ["Open Sans", "sans-serif"],
+      display: ["Montserrat", "Open Sans", "sans-serif"],
+      body: ["Open\\ Sans", "sans-serif"],
     },
     container: {
       padding: {

@@ -32,7 +32,6 @@ function Md({ className, content, item }) {
 
 const Markdown = styled.div`
   color: ${(props) => props.color};
-  background-size: cover;
 
   ${(props) =>
     props.backgroundColor &&
@@ -45,6 +44,7 @@ const Markdown = styled.div`
     css`
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url("${props.backgroundImage}") center no-repeat;
+      background-size: cover;
     `}
 
   & * {

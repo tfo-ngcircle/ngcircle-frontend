@@ -74,6 +74,7 @@ function Contact({ contact }) {
                 case "text":
                   return (
                     <ShortInput
+                      key={field.ref}
                       id={field.ref}
                       label={field.label}
                       placeholder={field.placeholder}
@@ -86,6 +87,7 @@ function Contact({ contact }) {
                 case "textArea":
                   return (
                     <TextArea
+                      key={field.ref}
                       id={field.ref}
                       label={field.label}
                       placeholder={field.placeholder}
