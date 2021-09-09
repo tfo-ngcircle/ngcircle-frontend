@@ -14,7 +14,9 @@ function Page({ page }) {
       <Seo seo={page.seo} />
       <Container header={header} footer={footer}>
         <CTA cta={page.cta} style={{ backgroundColor: "#000" }} />
-        <PrimaryImage primaryImage={page.landing[0]} />
+        {page.landing.length > 0 ? (
+          <PrimaryImage primaryImage={page.landing[0]} />
+        ) : undefined}
         {page.content && <Content items={page.content} />}
       </Container>
     </>
