@@ -7,7 +7,7 @@ import Seo from "@/components/seo";
 import PrimaryImage from "@/components/primaryImage";
 import Content from "@/components/content";
 
-function Page({ page }) {
+function Page({ page, children }) {
   const { header, footer } = useContext(GlobalContext);
   return (
     <>
@@ -18,6 +18,7 @@ function Page({ page }) {
           <PrimaryImage primaryImage={page.landing[0]} />
         ) : undefined}
         {page.content && <Content items={page.content} />}
+        {children}
       </Container>
     </>
   );
