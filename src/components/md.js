@@ -17,6 +17,9 @@ function Md({ className, content, item, largeHeadings }) {
           ul: ({ node, ...props }) => (
             <ul className="list-disc pl-5 lg:pl-6" {...props} />
           ),
+          ol: ({ node, ...props }) => (
+            <ol className="list-decimal pl-5 lg:pl-6" {...props} />
+          ),
           li: ({ node, ...props }) => (
             <li className="pl-3 marker:text-primary" {...props} />
           ),
