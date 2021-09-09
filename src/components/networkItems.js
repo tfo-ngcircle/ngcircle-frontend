@@ -31,8 +31,6 @@ function NetworkItems({ content }) {
 export default NetworkItems;
 
 const Group = styled.div`
-  background-size: cover;
-
   ${(props) =>
     props.color &&
     css`
@@ -50,6 +48,7 @@ const Group = styled.div`
     css`
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url("${props.backgroundImage}") center no-repeat;
+      background-size: cover;
     `}
 
   & * {
