@@ -35,7 +35,7 @@ function Blogs({ blog }) {
 export default Blogs;
 
 export async function getServerSideProps({ locale }) {
-  const [blog] = await Promise.all([fetchApi(`/blog?_locale=${locale}`)]);
+  const blog = await fetchApi(`/blog?_locale=${locale}`);
 
   return {
     props: { blog },
