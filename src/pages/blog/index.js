@@ -6,7 +6,12 @@ import Page from "../[slug]";
 function Blogs({ blog }) {
   return (
     <Page page={blog}>
-      <div className="container space-y-10 divide-y-2 divide-gray-700 pb-20">
+      <embed
+        src="https://ngcircle.digital/w-ikt/presse-2/"
+        height="7600"
+        className="container"
+      />
+      {/* <div className="container space-y-10 divide-y-2 divide-gray-700 pb-20">
         {blog.articles.map((article) => {
           return (
             <div key={article.id} className="space-y-5 flex flex-col">
@@ -27,7 +32,7 @@ function Blogs({ blog }) {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </Page>
   );
 }
