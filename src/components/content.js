@@ -1,8 +1,8 @@
-import MyImage from "./image";
 import Spacer from "./spacer";
 import ParallaxImage from "./parallax";
 import Md from "./md";
 import NetworkItems from "./networkItems";
+import Media from "./media";
 
 function Content({ items }) {
   return (
@@ -40,7 +40,7 @@ function Content({ items }) {
                     overflow: "hidden",
                   }}
                 >
-                  <MyImage image={item.media} />
+                  <Media media={item.media} height="100%" width="100%" />
                 </div>
               );
           case "shared.media-desc":
