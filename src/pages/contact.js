@@ -1,21 +1,21 @@
-import { fetchApi, postApi } from "@/lib/api";
-import { GlobalContext } from "./_app";
-import { useContext, useState, useRef } from "react";
-import CTA from "@/components/cta";
-import Container from "@/components/container";
-import Seo from "@/components/seo";
-import PrimaryImage from "@/components/primaryImage";
-import Content from "@/components/content";
-import ShortInput from "@/components/shortInput";
-import TextArea from "@/components/textArea";
 import Checkbox from "@/components/checkbox";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
-import { useRouter } from "next/router";
+import Container from "@/components/container";
+import Content from "@/components/content";
+import CTA from "@/components/cta";
 import MyDialog from "@/components/dialog";
 import Md from "@/components/md";
+import PrimaryImage from "@/components/primaryImage";
+import Seo from "@/components/seo";
+import ShortInput from "@/components/shortInput";
+import TextArea from "@/components/textArea";
+import { fetchApi, postApi } from "@/lib/api";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useRouter } from "next/router";
+import { useContext, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
+import * as Yup from "yup";
+import { GlobalContext } from "./_app";
 
 function Contact({ contact }) {
   const { header, footer } = useContext(GlobalContext);
@@ -150,7 +150,7 @@ function Contact({ contact }) {
   );
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   const [contact] = await Promise.all([fetchApi(`/contact?_locale=${locale}`)]);
 
   return {

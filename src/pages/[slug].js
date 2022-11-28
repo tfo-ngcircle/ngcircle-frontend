@@ -1,11 +1,11 @@
-import { fetchApi } from "@/lib/api";
-import { GlobalContext } from "./_app";
-import { useContext } from "react";
-import CTA from "@/components/cta";
 import Container from "@/components/container";
-import Seo from "@/components/seo";
-import PrimaryImage from "@/components/primaryImage";
 import Content from "@/components/content";
+import CTA from "@/components/cta";
+import PrimaryImage from "@/components/primaryImage";
+import Seo from "@/components/seo";
+import { fetchApi } from "@/lib/api";
+import { useContext } from "react";
+import { GlobalContext } from "./_app";
 
 function Page({ page, children }) {
   const { header, footer } = useContext(GlobalContext);
@@ -24,19 +24,19 @@ function Page({ page, children }) {
   );
 }
 
-// export async function getStaticPaths() {
-//   const pages = await fetchApi(`/pages`);
-//   return {
-//     paths: pages.map((page) => ({
-//       params: {
-//         slug: page.slug,
-//       },
-//     })),
-//     fallback: false,
-//   };
-// }
+export async function getStaticPaths() {
+  const pages = await fetchApi(`/pages`);
+  return {
+    paths: pages.map((page) => ({
+      params: {
+        slug: page.slug,
+      },
+    })),
+    fallback: false,
+  };
+}
 
-export async function getServerSideProps({ params, locale }) {
+export async function getStaticProps({ params, locale }) {
   const pages = await fetchApi(`/pages/?slug=${params.slug}&_locale=${locale}`);
 
   if (pages.length < 1)

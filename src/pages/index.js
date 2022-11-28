@@ -5,7 +5,7 @@ export default function Home({ homepage }) {
   return <Page page={homepage} />;
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   const [homepage] = await Promise.all([
     fetchApi(`/homepage?_locale=${locale}`),
   ]);

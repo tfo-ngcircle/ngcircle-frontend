@@ -1,12 +1,12 @@
-import { fetchApi } from "@/lib/api";
-import { GlobalContext } from "./_app";
-import { useContext } from "react";
-import CTA from "@/components/cta";
 import Container from "@/components/container";
-import Seo from "@/components/seo";
-import PrimaryImage from "@/components/primaryImage";
 import Content from "@/components/content";
+import CTA from "@/components/cta";
 import Jobs from "@/components/jobs";
+import PrimaryImage from "@/components/primaryImage";
+import Seo from "@/components/seo";
+import { fetchApi } from "@/lib/api";
+import { useContext } from "react";
+import { GlobalContext } from "./_app";
 
 function Career({ career }) {
   const { header, footer } = useContext(GlobalContext);
@@ -24,7 +24,7 @@ function Career({ career }) {
   );
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   const [career] = await Promise.all([fetchApi(`/career?_locale=${locale}`)]);
 
   return {
