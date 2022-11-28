@@ -14,7 +14,7 @@ function Career({ career }) {
     <>
       <Seo seo={career.seo} />
       <Container header={header} footer={footer}>
-        <CTA cta={career.cta} style={{ backgroundColor: "#000" }} />
+        <CTA cta={career.cta} style={{ backgroundColor: "#000000" }} />
         <PrimaryImage primaryImage={career.landing[0]} />
         {career.content && <Content items={career.content} />}
         {career.jobs && <Jobs jobs={career.jobs} />}
